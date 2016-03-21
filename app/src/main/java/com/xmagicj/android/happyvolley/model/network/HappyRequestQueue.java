@@ -6,6 +6,7 @@ import android.util.Log;
 import com.android.volley.ExecutorDelivery;
 import com.android.volley.Network;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
@@ -34,7 +35,7 @@ public class HappyRequestQueue {
      */
     private static final int DEFAULT_NETWORK_THREAD_POOL_SIZE = 1;
 
-    com.android.volley.RequestQueue mRequestQueue;
+    RequestQueue mRequestQueue;
     ExecutorService executorService = Executors.newFixedThreadPool(1);
 
     /**
@@ -123,10 +124,13 @@ public class HappyRequestQueue {
      * @param context Context
      * @return RequestQueue
      */
-    public com.android.volley.RequestQueue newRequestQueue(Context context) {
+    public RequestQueue newRequestQueue(Context context) {
         File cacheDir = new File(context.getCacheDir(), DEFAULT_CACHE_DIR);
         Network network = new BasicNetwork(new HurlStack());
-        com.android.volley.RequestQueue queue = new com.android.volley.RequestQueue(new DiskBasedCache(cacheDir), network, DEFAULT_NETWORK_THREAD_POOL_SIZE, new ExecutorDelivery(executorService));
+        RequestQueue queue = new RequestQueue(new DiskBasedCache(cacheDir),
+                network,
+                DEFAULT_NETWORK_THREAD_POOL_SIZE,
+                new ExecutorDelivery(executorService));
         queue.start();
         return queue;
     }
