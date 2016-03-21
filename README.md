@@ -65,6 +65,14 @@ MVP架构搞起来 各种Niubility... <br />
 做完后的样子...<br />
 ![github](https://github.com/xmagicj/HappyVolley/blob/master/happy_volley.png "happy_volley")  
 
+## 使用说明
+因为是个单例类
+直接使用
+```
+HappyRequestQueue.getInstance().addRequest(YourRequest);
+```
+*YourRequest extends com.android.volley.Request<T>* <br />
+即可
 
 ## 具体代码
 ```
@@ -181,3 +189,6 @@ public class HappyRequestQueue {
 链接
 -----------------------------------
 1.[https://github.com/xmagicj/HappyVolley](https://github.com/xmagicj/HappyVolley)<br />
+
+
+怎样直接添加License?谁可以分享一下?
