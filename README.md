@@ -43,11 +43,6 @@
 后来想想算了咱们还是做个Demo吧.
 谁让哥做人这么厚道呢...
 
-网络请求库的Demo 肯定要请求点啥啊...恩对~
-但是...天呐~~~哪有API来做Demo测试呢?
-
-好在我机智...找到淘宝有个手机号的API接口 不用像百度那样非要appkey
-> https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=手机号 <br />
 那就开始写呗...
 啪啪啪~
 
@@ -55,9 +50,16 @@
 MVP架构搞起来 各种Niubility... <br />
 ![github](https://github.com/xmagicj/HappyVolley/blob/master/happy_volley_mvp.png "happy_volley_mvp")  
 
+网络请求库的Demo 肯定要请求点啥啊...恩对~
+但是...天呐~~~哪有API来做Demo测试呢?
+
+好在我机智...找到淘宝有个手机号的API接口 不用像百度那样非要appkey
+> https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=手机号 <br />
+
 坑爹的是这个接口不能用POST,以往封装好的JSONRequest无法直接使用...
 不过这也难不倒哥...改就是了 , GET分分钟搞定...
-虽然显得不够优雅.但是我们的重点不是这一层啊...
+虽然显得不够优雅.
+但是我们的重点不是这一层啊...
 
 做完后的样子...<br />
 ![github](https://github.com/xmagicj/HappyVolley/blob/master/happy_volley.png "happy_volley")  
