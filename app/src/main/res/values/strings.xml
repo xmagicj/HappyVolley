@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HappyVolley</string>
+
+    <string name="prompt_phone_num">Phone Number</string>
+    <string name="error_invalid_phone_num">This phone number is invalid</string>
+    <string name="action_search">Search</string>
+
+</resources>
