@@ -1,6 +1,7 @@
 # HappyVolley
-在非UI线程返回Response且可以配置并发线程数的Volley(未改动源码)<br />
-采用MVP标准架构搭建Demo
+- 在非UI线程返回Response且可以配置并发线程数的Volley(未改动源码)<br />
+- 提供Cancel单个Request的封装
+- 采用MVP标准架构搭建Demo
 
 ## 前言
 我知道...我懂
@@ -38,6 +39,43 @@
         }
 ```
 去创建一个新的RequestQueue对象即可解决这个问题.
+
+**3. Demo中还附送福利** <br />
+BaseRequest类中赠送 Cancel的封装 <br />
+可以根据传入的Tag Cancel单个Request 或者 Cancel All Request
+```
+    /**
+     * 取消所有请求
+     */
+    public static void cancelAllRequest() {
+        HappyRequestQueue.getInstance().getRequestQueue().cancelAll(new RequestQueue.RequestFilter() {
+            @Override
+            public boolean apply(Request<?> request) {
+                Log.w(TAG, "Cancel All Request");
+                return true;
+            }
+        });
+    }
+
+    /**
+     * 根据tag来取消符合tag的请求
+     *
+     * @param tag String
+     */
+    public static void cancelRequest(final String tag) {
+        // 取消已经存在的请求，防止重复请求
+        HappyRequestQueue.getInstance().getRequestQueue().cancelAll(new RequestQueue.RequestFilter() {
+            @Override
+            public boolean apply(Request<?> request) {
+                boolean cancel = tag.equals(request.getTag());
+                if (cancel) {
+                    Log.w(TAG, "Cancel Old Request: " + tag);
+                }
+                return cancel;
+            }
+        });
+    }
+```
 
 ## 工程描述
 本来是说就放个HappyRequestQueue类好了.反正大家也看得懂.
