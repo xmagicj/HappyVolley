@@ -80,11 +80,13 @@ public abstract class BaseRequest {
             setTag(getURL() + "?" + getParamsMap().toString());
         }
 
-        String finalURL = getURL();
-
+        // 这个鬼淘宝的请求 Get + getHeaders()没用,Response Data始终是空的
+        // 重点也不是这个地方.所以手动拼装下url.
+        String suffix = "";
         for (String headerName : getParamsMap().keySet()) {
-            finalURL = finalURL + pickUpHeader(headerName, getParamsMap().get(headerName));
+            suffix = suffix + pickUpHeader(headerName, getParamsMap().get(headerName));
         }
+        String finalURL = getURL() + suffix;
 
         cancelRequest(getTag());
         // 项目中请求也是用的json
