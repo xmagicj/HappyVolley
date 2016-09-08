@@ -1,4 +1,4 @@
-# HappyVolley
+# HappyVolley [![Build Status](https://travis-ci.org/xmagicj/HappyVolley.svg?branch=master)](https://travis-ci.org/xmagicj/HappyVolley)
 - 在非UI线程返回Response且可以配置并发线程数的Volley(未改动源码)<br />
 - 提供Cancel单个Request的封装
 - 采用MVP标准架构搭建Demo
